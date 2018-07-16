@@ -1,0 +1,8 @@
+all: main.o
+	gcc main.o -o app -Llib/static -lhello
+
+main.o: main.c
+	gcc -c main.c
+
+clean:
+	-rm *.o app

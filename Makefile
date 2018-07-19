@@ -14,12 +14,11 @@ static: func.c func.h
 	ar -crv lib/static/libhello.a func.o
 
 # run `make dynamic` to build libhello.so
-dynamic: func.c func.h
+dynamic: func.o
 	# make lib dir
 	# add option '-p' to avoid directory exists error 
 	mkdir -p lib/dynamic
-	gcc -c func.c
-	gcc -shared -fPIC -o libhello.so func.c
+	gcc -shared -fPIC -o libhello.so func.o
 	mv libhello.so lib/dynamic
 
 clean:
